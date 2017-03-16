@@ -44,11 +44,13 @@ class InsSpider(scrapy.Spider):
         for node in top_post_nodes_data:
             # self.logger.info('node %s', node)
             item = items.InsScrapyItem()
-            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 5:
+            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 50:
                 # self.logger.info('123123123123123121')
                 # self.logger.info('node %s', node['code'])
                 # print(node['code'])
                 item['url'] = 'https://www.instagram.com/p/' + node['code'] + '/?taken-at=' + taken_at
+                item['comments_count'] = node['comments']['count']
+                item['likes_count'] = node['likes']['count']
                 videos.append(item)
                 yield item
             else:

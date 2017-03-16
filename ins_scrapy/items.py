@@ -11,4 +11,6 @@ import scrapy
 class InsScrapyItem(scrapy.Item):
     # define the fields for your item here like:
     url = scrapy.Field()
+    comments_count = scrapy.Field()
+    likes_count = scrapy.Field()
     # pass

@@ -1,10 +1,13 @@
 import json
+from sys import argv
 
-filename = 'picaram'
+filename = argv[1]
 
 json_file = open(filename + '.json', 'r')
 
 txt_file = open(filename + '.txt', 'w')
+
+txt_file.truncate()
 
 url_datas = json.load(json_file)
 
