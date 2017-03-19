@@ -30,9 +30,9 @@ class PicaramSpider(scrapy.Spider):
         video_list = response.xpath(
             '//article//div[@class="content-image video"]/a/@href').extract()
         base_url = 'http://www.Picaram.com'
-        videos = []
+        # videos = []
         for video in video_list:
             item = items.InsScrapyItem()
             item['url'] = base_url + video
-            videos.append(item)
+            # videos.append(item)
             yield item

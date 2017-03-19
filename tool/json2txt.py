@@ -3,20 +3,16 @@ from sys import argv
 
 filename = argv[1]
 
-json_file = open(filename + '.json', 'r')
+with open(filename + '.json', 'r') as json_file:
 
-txt_file = open(filename + '.txt', 'w')
+    with open(filename + '.txt', 'w') as txt_file:
 
-txt_file.truncate()
+        txt_file.truncate()
 
-url_datas = json.load(json_file)
+        url_datas = json.load(json_file)
 
-for url in url_datas:
+        for url in url_datas:
 
-    # print(url['url'])
+                # print(url['url'])
 
-    txt_file.write(url['url'] + '\n')
-
-json_file.close()
-
-txt_file.close()
+            txt_file.write(url['url'] + '\n')

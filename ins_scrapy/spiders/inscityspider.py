@@ -18,11 +18,11 @@ class InsCitySpider(scrapy.Spider):
         # city_list = data[0]['city_list']
         city_list = response.xpath('//body//main//a/@href').extract()
         base_url = 'https://www.instagram.com'
-        citys = []
+        # citys = []
         for city in city_list:
             item = items.InsScrapyItem()
             item['url'] = base_url + city
-            citys.append(item)
+            # citys.append(item)
             yield item
 
         # return citys
