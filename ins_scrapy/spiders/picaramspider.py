@@ -27,8 +27,7 @@ class PicaramSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        video_list = response.xpath(
-            '//article//div[@class="content-image video"]/a/@href').extract()
+        video_list = response.xpath('//article//div[@class="content-image video"]/a/@href').extract()
         base_url = 'http://www.Picaram.com'
         # videos = []
         for video in video_list:

@@ -12,14 +12,14 @@ from scrapy.conf import settings
 
 
 class InsSpider(scrapy.Spider):
-    name = 'InsVideo'
+    name = 'InsPic'
     allowed_domains = ['instagram.com']
     cookie = settings['COOKIE']  # read cookie from setting
 
     # start_urls = ['https://www.instagram.com/explore/locations/216524182/amity-universitynoida/']
 
     # def start_requests(self):
-    # 带着cookie向网站服务器发请求，表明我们是一个已登录的用户
+    #     # 带着cookie向网站服务器发请求，表明我们是一个已登录的用户
     # yield Request(self.start_urls[0], callback=self.parse,
     # cookies=self.cookie)
     def start_requests(self):
@@ -49,19 +49,19 @@ class InsSpider(scrapy.Spider):
         # nodes_data = json_data['entry_data']['LocationsPage'][0]['location']['media']['nodes']
         top_post_nodes_data = json_data['entry_data']['LocationsPage'][0]['location']['top_posts']['nodes']
         # nodes_data.extend(top_post_nodes_data)
-        taken_at = json_data['entry_data']['LocationsPage'][0]['location']['id']
+        # taken_at = json_data['entry_data']['LocationsPage'][0]['location']['id']
         # self.logger.info('nodes_data %s', nodes_data)
         # videos = []
         for node in top_post_nodes_data:
             # self.logger.info('node %s', node)
 
             item = items.InsScrapyItem()
-            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 50:
+            if node['is_video'] is False and node['comments']['count'] + node['likes']['count'] > 50:
                 # self.logger.info('node %s', node['code'])
                 # self.logger.info('comment %s', node['comments']['count'])
                 # self.logger.info('likes %s', node['likes']['count'])
                 # print(node['code'])
-                item['url'] = 'https://www.instagram.com/p/' + node['code'] + '/?taken-at=' + taken_at
+                # item['url'] = 'https://www.instagram.com/p/' + node['code'] + '/?taken-at=' + taken_at
                 item['comments_count'] = node['comments']['count']
                 item['likes_count'] = node['likes']['count']
                 # videos.append(item)
