@@ -23,7 +23,7 @@ class InsSpider(scrapy.Spider):
     # yield Request(self.start_urls[0], callback=self.parse,
     # cookies=self.cookie)
     def start_requests(self):
-        with open('location_1.json', 'r') as f:
+        with open('location.json', 'r') as f:
             locations = json.load(f)
         for location in locations:
             yield scrapy.Request(location['url'], callback=self.parse, cookies=self.cookie)
