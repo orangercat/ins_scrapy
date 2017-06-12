@@ -15,7 +15,7 @@ SPIDER_MODULES = ['ins_scrapy.spiders']
 NEWSPIDER_MODULE = 'ins_scrapy.spiders'
 
 # 设置Log级别:
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'ins_scraper (+http://www.yourdomain.com)'
 
