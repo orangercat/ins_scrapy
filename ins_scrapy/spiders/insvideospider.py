@@ -23,7 +23,7 @@ class InsSpider(scrapy.Spider):
     # yield Request(self.start_urls[0], callback=self.parse,
     # cookies=self.cookie)
     def start_requests(self):
-        with open('location_1.json', 'r') as f:
+        with open('location.json', 'r') as f:
             locations = json.load(f)
         for location in locations:
             yield scrapy.Request(location['url'], callback=self.parse, cookies=self.cookie)
@@ -56,7 +56,7 @@ class InsSpider(scrapy.Spider):
             # self.logger.info('node %s', node)
 
             item = items.InsScrapyItem()
-            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 50:
+            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 200:
                 # self.logger.info('node %s', node['code'])
                 # self.logger.info('comment %s', node['comments']['count'])
                 # self.logger.info('likes %s', node['likes']['count'])

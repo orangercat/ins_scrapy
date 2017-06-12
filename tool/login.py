@@ -9,7 +9,7 @@ def login():
 
     url = 'https://www.instagram.com/'
     url_login = 'https://www.instagram.com/accounts/login/ajax/'
-    test_url = 'https://www.instagram.com/explore/locations/216524182/amity-universitynoida/'
+    # test_url = 'https://www.instagram.com/explore/locations/216524182/amity-universitynoida/'
     user_agent = ("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36")
     accept_language = 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
@@ -57,7 +57,7 @@ def parse(requests, url):
 
     taken_at = json_data['entry_data']['LocationsPage'][0]['location']['id']
     # self.logger.info('nodes_data %s', nodes_data)
-    videos = []
+    # videos = []
     for node in top_post_nodes_data:
         # print(node['comments']['count'])
 
