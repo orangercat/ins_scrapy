@@ -56,7 +56,7 @@ class InsSpider(scrapy.Spider):
             # self.logger.info('node %s', node)
 
             item = items.InsScrapyItem()
-            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 200:
+            if node['is_video'] and node['comments']['count'] + node['likes']['count'] > 1000:
                 # self.logger.info('node %s', node['code'])
                 # self.logger.info('comment %s', node['comments']['count'])
                 # self.logger.info('likes %s', node['likes']['count'])
