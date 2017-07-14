@@ -8,16 +8,17 @@ pattern = re.compile(r'[a-zA-z]+://[^\s]*/')
 
 
 def urls_re(filename):
-    with open(filename + '.txt', 'r') as txt_file:
-        with open(filename + '_url.txt', 'w') as url_file:
-            for url in txt_file:
-                urls_re = re.findall(pattern, url)
-                urls_re_counter = Counter(urls_re)
-                # print(urls_re_counter)
-                for url_re_counter in urls_re_counter:
-                    # print(url_re_counter)
-                    # for url_re in urls_re:
-                    url_file.write(url_re_counter + '\n')
+    with open(filename + '.txt', 'r') as in_file:
+        with open(filename + '_url.txt', 'w') as out_file:
+            urls = in_file.readlines()
+            print(in_file.readlines())
+            # for i in in_file.readlines():
+            #     url_re = re.findall(pattern, i)
+            #     urls.append(url_re)
+            urls_counter = Counter(urls)
+            print(urls_counter)
+            for url_counter in urls_counter:
+                out_file.write(url_counter)
 
 
 if __name__ == "__main__":
