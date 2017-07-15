@@ -14,6 +14,8 @@ BOT_NAME = 'ins_scrapy'
 SPIDER_MODULES = ['ins_scrapy.spiders']
 NEWSPIDER_MODULE = 'ins_scrapy.spiders'
 
+JOBDIR = 'instagram.com'
+
 # 设置Log级别:
 LOG_LEVEL = 'INFO'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
